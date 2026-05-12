@@ -1,9 +1,9 @@
 {
   "name": "bmu-study-hub",
   "version": "1.0.0",
-  "description": "BMU Study Hub — учебная платформа для студентов British Management University",
+  "description": "BMU Study Hub",
   "scripts": {
-    "start": "npx serve . -p ${PORT:-3000} --no-clipboard"
+    "start": "npx http-server . -p ${PORT:-8080} --cors -c-1"
   },
   "engines": {
     "node": ">=18.0.0"

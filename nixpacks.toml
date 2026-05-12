@@ -2,4 +2,4 @@
 cmds = []
 
 [start]
-cmd = "npx serve . -p ${PORT:-3000} --no-clipboard"
+cmd = "npx http-server . -p ${PORT:-8080} --cors -c-1"
