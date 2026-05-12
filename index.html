@@ -700,7 +700,7 @@
 <div class="top-controls" id="top-controls">
   <button class="ctrl-btn" onclick="toggleTheme()" id="theme-btn">🌙 Тёмная</button>
   <button class="ctrl-btn" onclick="toggleLang()" id="lang-btn">🇬🇧 EN</button>
-  <button class="ctrl-btn" onclick="showPage('mock')" id="nav-mock">🎯 Mock Exam</button>
+  <button class="ctrl-btn" onclick="showPage('mock')" id="nav-mock">🎯 Тест</button>
 </div>
 
 <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
@@ -717,21 +717,21 @@
     <div class="nav-section">
       <div class="nav-label">Навигация</div>
       <button class="nav-item active" onclick="showPage('home')" id="nav-home">
-        <span class="icon">🏠</span> Главная
+        <span class="icon">🏠</span> <span data-i18n="nav_home">Главная</span>
       </button>
       <button class="nav-item" onclick="showPage('subjects')" id="nav-subjects">
-        <span class="icon">📚</span> Предметы
+        <span class="icon">📚</span> <span data-i18n="nav_subjects">Предметы</span>
       </button>
       <button class="nav-item" onclick="showPage('ai')" id="nav-ai">
-        <span class="icon">🤖</span> ИИ Преподаватель
+        <span class="icon">🤖</span> <span data-i18n="nav_ai">ИИ Преподаватель</span>
         <span class="badge">NEW</span>
       </button>
       <button class="nav-item" onclick="showPage('mock')" id="nav-mock-side">
-        <span class="icon">🎯</span> <span data-i18n="nav_mock">Mock Exam</span>
+        <span class="icon">🎯</span> <span data-i18n="nav_mock">Тест</span>
         <span class="badge" style="background:var(--danger)">HOT</span>
       </button>
       <button class="nav-item" onclick="showPage('progress')" id="nav-progress">
-        <span class="icon">📊</span> Прогресс
+        <span class="icon">📊</span> <span data-i18n="nav_progress">Прогресс</span>
       </button>
     </div>
 
@@ -760,9 +760,9 @@
     <!-- HOME -->
     <div class="page active" id="page-home">
       <div class="hero">
-        <div class="hero-tag">🆓 Полностью бесплатно</div>
-        <h1>Готовься к экзаменам<br><em>умнее</em>, не дольше</h1>
-        <p>Тесты, флэшкарты, теории, видео и ИИ-преподаватель для студентов BMU. Без оплаты и регистрации.</p>
+        <div class="hero-tag" data-i18n="hero_tag">🆓 Полностью бесплатно</div>
+        <h1 data-i18n-html="hero_h1">Готовься к экзаменам<br><em>умнее</em>, не дольше</h1>
+        <p data-i18n="hero_p">Тесты, флэшкарты, теории, видео и ИИ-преподаватель для студентов BMU. Без оплаты и регистрации.</p>
         <div class="hero-actions">
           <button class="btn btn-primary" onclick="showPage('subjects')">📚 Начать учиться</button>
           <button class="btn btn-ghost" onclick="showPage('ai')">🤖 Спросить ИИ</button>
@@ -773,29 +773,29 @@
         <div class="stat-card">
           <div class="stat-icon">✏️</div>
           <div class="stat-val" id="stat-tests">0</div>
-          <div class="stat-lbl">Тестов пройдено</div>
+          <div class="stat-lbl" data-i18n="stat_tests">Тестов пройдено</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">🃏</div>
           <div class="stat-val" id="stat-cards">0</div>
-          <div class="stat-lbl">Флэшкарт изучено</div>
+          <div class="stat-lbl" data-i18n="stat_cards">Флэшкарт изучено</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">⚡</div>
           <div class="stat-val" id="stat-xp">0</div>
-          <div class="stat-lbl">Очков опыта</div>
+          <div class="stat-lbl" data-i18n="stat_xp">Очков опыта</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">🔥</div>
           <div class="stat-val" id="stat-streak">0</div>
-          <div class="stat-lbl">Дней подряд</div>
+          <div class="stat-lbl" data-i18n="stat_streak">Дней подряд</div>
         </div>
       </div>
 
       <div class="section-hdr">
         <div>
-          <h2>Все предметы</h2>
-          <div class="hdr-sub">7 предметов · 2 курса</div>
+          <h2 data-i18n="all_subjects">Все предметы</h2>
+          <div class="hdr-sub" data-i18n="subjects_sub">7 предметов · 2 курса</div>
         </div>
       </div>
       <div class="subject-grid" id="home-subjects"></div>
@@ -805,8 +805,8 @@
     <div class="page" id="page-subjects">
       <div class="section-hdr">
         <div>
-          <h2>📚 Предметы</h2>
-          <div class="hdr-sub">Выберите предмет для изучения</div>
+          <h2><span data-i18n="emoji_subjects">📚</span> <span data-i18n="nav_subjects">Предметы</span></h2>
+          <div class="hdr-sub" data-i18n="choose_subject">Выберите предмет для изучения</div>
         </div>
       </div>
       <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
@@ -834,22 +834,17 @@
       </div>
 
       <div class="feature-tabs" id="feature-tabs">
-        <button class="tab-btn active" onclick="switchTab('materials')">📖 Теория</button>
-        <button class="tab-btn" onclick="switchTab('quiz')">✏️ Тест MCQ</button>
-        <button class="tab-btn" onclick="switchTab('flashcards')">🃏 Флэшкарты</button>
-        <button class="tab-btn" onclick="switchTab('tf')">⚡ True/False</button>
-        <button class="tab-btn" onclick="switchTab('glossary')">📖 Глоссарий</button>
-        <button class="tab-btn" onclick="switchTab('videos')">🎬 Видео</button>
+        <button class="tab-btn active" onclick="switchTab('materials')"><span data-i18n="tab_theory">📖 Теория</span></button>
+        <button class="tab-btn" onclick="switchTab('flashcards')"><span data-i18n="tab_flash">🃏 Флэшкарты</span></button>
+        <button class="tab-btn" onclick="switchTab('tf')"><span data-i18n="tab_tf">⚡ True/False</span></button>
+        <button class="tab-btn" onclick="switchTab('glossary')"><span data-i18n="tab_glossary">📖 Глоссарий</span></button>
+        <button class="tab-btn" onclick="switchTab('videos')"><span data-i18n="tab_videos">🎬 Видео</span></button>
       </div>
 
       <!-- MATERIALS TAB -->
       <div class="tab-content active" id="tab-materials">
         <div class="chapter-list" id="chapters-list"></div>
       </div>
-
-      <!-- QUIZ TAB -->
-      <div class="tab-content" id="tab-quiz">
-        <div class="quiz-wrap" id="quiz-container"></div>
       </div>
 
       <!-- FLASHCARDS TAB -->
@@ -927,7 +922,7 @@
         <div class="stat-card">
           <div class="stat-icon">✏️</div>
           <div class="stat-val" id="p-tests">0</div>
-          <div class="stat-lbl">Тестов пройдено</div>
+          <div class="stat-lbl" data-i18n="stat_tests">Тестов пройдено</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">💯</div>
@@ -958,11 +953,11 @@
 
 <!-- Mobile Nav -->
 <nav class="mobile-nav">
-  <button class="mob-btn active" onclick="showPage('home')" id="mob-home"><span class="mob-icon">🏠</span>Главная</button>
-  <button class="mob-btn" onclick="showPage('subjects')" id="mob-subjects"><span class="mob-icon">📚</span>Предметы</button>
-  <button class="mob-btn" onclick="showPage('ai')" id="mob-ai"><span class="mob-icon">🤖</span>ИИ</button>
-  <button class="mob-btn" onclick="showPage('mock')" id="mob-mock"><span class="mob-icon">🎯</span>Mock</button>
-  <button class="mob-btn" onclick="showPage('progress')" id="mob-progress"><span class="mob-icon">📊</span>Прогресс</button>
+  <button class="mob-btn active" onclick="showPage('home')" id="mob-home"><span class="mob-icon">🏠</span><span data-i18n="nav_home">Главная</span></button>
+  <button class="mob-btn" onclick="showPage('subjects')" id="mob-subjects"><span class="mob-icon">📚</span><span data-i18n="nav_subjects">Предметы</span></button>
+  <button class="mob-btn" onclick="showPage('ai')" id="mob-ai"><span class="mob-icon">🤖</span><span data-i18n="nav_ai_short">ИИ</span></button>
+  <button class="mob-btn" onclick="showPage('mock')" id="mob-mock"><span class="mob-icon">🎯</span>Тест</button>
+  <button class="mob-btn" onclick="showPage('progress')" id="mob-progress"><span class="mob-icon">📊</span><span data-i18n="nav_progress">Прогресс</span></button>
 </nav>
 
 <div class="toast" id="toast"></div>
@@ -1775,7 +1770,7 @@ function renderSubjectCard(key) {
     <h3>${s.emoji} ${s.name}</h3>
     <div class="s-meta">Курс ${s.course} · ${(QUIZZES[key]||[]).length} вопросов · ${(FLASHCARDS[key]||[]).length} флэшкарт</div>
     <div class="subject-pills">
-      <span class="pill active">📖 Теория</span>
+      <span class="pill active"><span data-i18n="tab_theory">📖 Теория</span></span>
       <span class="pill active">✏️ MCQ</span>
       <span class="pill active">🃏 Карты</span>
       <span class="pill active">⚡ T/F</span>
@@ -1883,7 +1878,7 @@ function renderQuizResult(score, total, key) {
   saveState();
   document.getElementById('sh-score').textContent = state.scores[key] + '%';
 
-  const grade = pct >= 80 ? '🏆 Отлично!' : pct >= 60 ? '✅ Хорошо' : pct >= 40 ? '📚 Нужно повторить' : '⚠️ Изучи теорию';
+  const grade = pct >= 80 ? t('result_grade_excellent') : pct >= 60 ? t('result_grade_good') : pct >= 40 ? t('result_grade_ok') : t('result_grade_bad');
   document.getElementById('quiz-container').innerHTML = `
     <div class="quiz-result">
       <div style="font-size:48px;margin-bottom:12px">🏁</div>
@@ -2007,7 +2002,7 @@ function renderTFResult(score, total, key) {
     <div class="quiz-result">
       <div style="font-size:48px;margin-bottom:12px">⚡</div>
       <div class="result-score">${score}/${total}</div>
-      <div class="result-grade">${pct >= 80 ? '🏆 Отлично!' : pct >= 60 ? '✅ Хорошо' : '📚 Повтори!'}</div>
+      <div class="result-grade">${pct >= 80 ? t('result_grade_excellent') : pct >= 60 ? t('result_grade_good') : '📚 Повтори!'}</div>
       <div style="font-size:24px;color:var(--gold);margin-bottom:24px">+${xpGain} XP</div>
       <button class="btn btn-primary" onclick="renderTF('${key}')">🔄 Снова</button>
     </div>`;
@@ -2175,8 +2170,8 @@ function showToast(msg) {
 let currentLang = localStorage.getItem('bmuLang') || 'ru';
 const TRANSLATIONS = {
   ru: {
-    nav_home:'Главная', nav_subjects:'Предметы', nav_ai:'ИИ Преподаватель',
-    nav_progress:'Прогресс', nav_mock:'Mock Exam',
+    nav_home:'Главная', nav_subjects:'Предметы', nav_ai:'ИИ Преподаватель', nav_ai_short:'ИИ',
+    nav_progress:'Прогресс', nav_mock:'Тест', emoji_subjects:'📚',
     hero_tag:'🆓 Полностью бесплатно',
     hero_h1:'Готовься к экзаменам<br><em>умнее</em>, не дольше',
     hero_p:'Тесты, флэшкарты, теории, видео и ИИ-преподаватель для студентов BMU.',
@@ -2184,20 +2179,29 @@ const TRANSLATIONS = {
     stat_tests:'Тестов пройдено', stat_cards:'Флэшкарт изучено',
     stat_xp:'Очков опыта', stat_streak:'Дней подряд',
     all_subjects:'Все предметы', subjects_sub:'7 предметов · 2 курса',
-    btn_theme_dark:'🌙 Тёмная', btn_theme_light:'☀️ Светлая',
-    mock_title:'🎯 Mock Exam', mock_sub:'Симулятор реального экзамена',
-    mock_choose_sub:'Выбери предмет:', mock_choose_mode:'Выбери режим:',
-    mock_start:'🚀 Начать Mock Exam', mock_questions:'вопросов',
+    choose_subject:'Выберите предмет для изучения',
+    tab_theory:'📖 Теория', tab_flash:'🃏 Флэшкарты',
+    tab_tf:'⚡ True/False', tab_glossary:'📖 Глоссарий', tab_videos:'🎬 Видео',
+    mock_title:'🎯 Тест', mock_sub:'Симулятор реального экзамена',
+    mock_start:'🚀 Начать Тест', mock_questions:'вопросов',
     mock_minutes:'минут', mock_finish:'✅ Завершить тест',
-    mock_result_title:'Результат Mock Exam',
-    mock_correct:'Правильных', mock_wrong:'Неправильных',
-    mock_time_used:'Потрачено времени',
-    mock_retry:'🔄 Попробовать снова', mock_back:'← Назад к предметам',
-    lang_name:'RU'
+    mock_correct:t('mock_correct'), mock_wrong:t('mock_wrong'), mock_time_used:t('mock_time_used'),
+    mock_retry:'🔄 Новый тест', mock_back:'← К предметам',
+    mock_rules:'Подсказки и объяснения скрыты. Ответы показываются только после сдачи теста. Таймер отсчитывает время!',
+    mock_subject_label:'Предмет', mock_mode_label:'Режим',
+    mock_all_subjects:'Все предметы', mock_all_sub:'Микс из всех',
+    mode_quick:'Quick Test', mode_standard:'Standard', mode_full:'Full Exam',
+    mode_quick_sub:'20 вопросов · 25 мин', mode_standard_sub:'40 вопросов · 50 мин', mode_full_sub:'Все вопросы · 90 мин',
+    result_grade_excellent:t('result_grade_excellent'), result_grade_good:t('result_grade_good'),
+    result_grade_ok:t('result_grade_ok'), result_grade_bad:t('result_grade_bad'),
+    review_correct:t('review_correct'), review_wrong:t('review_wrong'), review_skip:t('review_skip'),
+    review_title:'📋 Разбор ошибок',
+    btn_submit:'✅ Сдать', btn_next:t('btn_next'), btn_prev:t('btn_prev'), btn_finish:'✅ Завершить',
+    progress_title:'📊 Прогресс',
   },
   en: {
-    nav_home:'Home', nav_subjects:'Subjects', nav_ai:'AI Tutor',
-    nav_progress:'Progress', nav_mock:'Mock Exam',
+    nav_home:'Home', nav_subjects:'Subjects', nav_ai:'AI Tutor', nav_ai_short:'AI',
+    nav_progress:'Progress', nav_mock:'Test', emoji_subjects:'📚',
     hero_tag:'🆓 Completely Free',
     hero_h1:'Prepare for exams<br><em>smarter</em>, not longer',
     hero_p:'Quizzes, flashcards, theory, videos and AI tutor for BMU students.',
@@ -2205,16 +2209,25 @@ const TRANSLATIONS = {
     stat_tests:'Tests Passed', stat_cards:'Flashcards Studied',
     stat_xp:'XP Earned', stat_streak:'Day Streak',
     all_subjects:'All Subjects', subjects_sub:'7 subjects · 2 years',
-    btn_theme_dark:'🌙 Dark', btn_theme_light:'☀️ Light',
-    mock_title:'🎯 Mock Exam', mock_sub:'Real exam simulator',
-    mock_choose_sub:'Choose subject:', mock_choose_mode:'Choose mode:',
-    mock_start:'🚀 Start Mock Exam', mock_questions:'questions',
+    choose_subject:'Choose a subject to study',
+    tab_theory:'📖 Theory', tab_flash:'🃏 Flashcards',
+    tab_tf:'⚡ True/False', tab_glossary:'📖 Glossary', tab_videos:'🎬 Videos',
+    mock_title:'🎯 Test', mock_sub:'Real exam simulator',
+    mock_start:'🚀 Start Test', mock_questions:'questions',
     mock_minutes:'minutes', mock_finish:'✅ Submit Exam',
-    mock_result_title:'Mock Exam Result',
-    mock_correct:'Correct', mock_wrong:'Wrong',
-    mock_time_used:'Time used',
-    mock_retry:'🔄 Try Again', mock_back:'← Back to Subjects',
-    lang_name:'EN'
+    mock_correct:'Correct', mock_wrong:'Wrong', mock_time_used:'Time used',
+    mock_retry:'🔄 New Test', mock_back:'← Back to Subjects',
+    mock_rules:'Hints and explanations are hidden. Answers are shown only after submission. Watch the timer!',
+    mock_subject_label:'Subject', mock_mode_label:'Mode',
+    mock_all_subjects:'All Subjects', mock_all_sub:'Mix of all',
+    mode_quick:'Quick Test', mode_standard:'Standard', mode_full:'Full Exam',
+    mode_quick_sub:'20 questions · 25 min', mode_standard_sub:'40 questions · 50 min', mode_full_sub:'All questions · 90 min',
+    result_grade_excellent:'🏆 Excellent!', result_grade_good:'✅ Good',
+    result_grade_ok:'📚 Needs Review', result_grade_bad:'⚠️ Study the Theory',
+    review_correct:'✅ Correct', review_wrong:'❌ Wrong', review_skip:'⏭ Skipped',
+    review_title:'📋 Answer Review',
+    btn_submit:'✅ Submit', btn_next:'Next →', btn_prev:'← Back', btn_finish:'✅ Finish',
+    progress_title:'📊 Progress',
   }
 };
 
@@ -2228,11 +2241,17 @@ function toggleLang() {
 }
 
 function applyTranslations() {
-  // Nav items
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    const k = el.getAttribute('data-i18n');
-    el.textContent = t(k);
+    el.textContent = t(el.getAttribute('data-i18n'));
   });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    el.innerHTML = t(el.getAttribute('data-i18n-html'));
+  });
+  // Theme button text
+  const themeBtn = document.getElementById('theme-btn');
+  if(themeBtn) themeBtn.textContent = isDark ? (currentLang==='en'?'☀️ Light':'☀️ Светлая') : (currentLang==='en'?'🌙 Dark':'🌙 Тёмная');
+  // Re-render mock if open
+  if(document.getElementById('page-mock')?.classList.contains('active')) showMockSetup();
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -2273,14 +2292,20 @@ function showMockSetup() {
     `<div class="mock-config-card" onclick="selectMockSubject('${k}',this)" data-key="${k}">
       <div class="cfg-icon">${SUBJECTS[k].emoji}</div>
       <div class="cfg-title">${SUBJECTS[k].short}</div>
-      <div class="cfg-sub">${(QUIZZES[k]||[]).length} вопросов</div>
+      <div class="cfg-sub">${(QUIZZES[k]||[]).length} ${t('mock_questions')}</div>
     </div>`
   ).join('');
 
-  const modeOptions = MOCK_MODES.map(m =>
+  const modes = [
+    { id:'quick',    icon:'⚡', title:t('mode_quick'),    sub:t('mode_quick_sub'),    q:20,  mins:25 },
+    { id:'standard', icon:'📋', title:t('mode_standard'), sub:t('mode_standard_sub'), q:40,  mins:50 },
+    { id:'full',     icon:'🏆', title:t('mode_full'),     sub:t('mode_full_sub'),     q:999, mins:90 },
+  ];
+
+  const modeOptions = modes.map(m =>
     `<div class="mock-config-card" onclick="selectMockMode('${m.id}',this)" data-mode="${m.id}">
-      <div class="cfg-icon">${m.label.split(' ')[0]}</div>
-      <div class="cfg-title">${m.label.substring(2)}</div>
+      <div class="cfg-icon">${m.icon}</div>
+      <div class="cfg-title">${m.title}</div>
       <div class="cfg-sub">${m.sub}</div>
     </div>`
   ).join('');
@@ -2289,34 +2314,34 @@ function showMockSetup() {
     <div class="mock-setup">
       <div class="section-hdr" style="margin-bottom:24px">
         <div>
-          <h2>🎯 Mock Exam</h2>
-          <div class="hdr-sub">Симулятор реального экзамена — без подсказок, с таймером</div>
+          <h2>${t('mock_title')}</h2>
+          <div class="hdr-sub">${t('mock_sub')}</div>
         </div>
       </div>
 
       <div style="margin-bottom:20px">
-        <div style="font-size:13px;color:var(--muted);font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">Предмет</div>
+        <div style="font-size:13px;color:var(--muted);font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">${t('mock_subject_label')}</div>
         <div class="mock-config-grid" id="mock-subject-grid">
           ${subjectOptions}
           <div class="mock-config-card" onclick="selectMockSubject('all',this)" data-key="all">
             <div class="cfg-icon">🌐</div>
-            <div class="cfg-title">Все предметы</div>
-            <div class="cfg-sub">Микс из всех</div>
+            <div class="cfg-title">${t('mock_all_subjects')}</div>
+            <div class="cfg-sub">${t('mock_all_sub')}</div>
           </div>
         </div>
       </div>
 
       <div style="margin-bottom:24px">
-        <div style="font-size:13px;color:var(--muted);font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">Режим</div>
+        <div style="font-size:13px;color:var(--muted);font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">${t('mock_mode_label')}</div>
         <div class="mock-config-grid" id="mock-mode-grid">${modeOptions}</div>
       </div>
 
       <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:24px;font-size:13px;color:var(--muted)">
-        ⚠️ <strong style="color:var(--text)">Правила Mock Exam:</strong> Подсказки и объяснения скрыты. Ответы показываются только после сдачи теста. Таймер отсчитывает время — следи за ним!
+        ⚠️ <strong style="color:var(--text)">${t('mock_title')}:</strong> ${t('mock_rules')}
       </div>
 
       <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:16px;padding:16px" onclick="startMockExam()" id="mock-start-btn" disabled>
-        🚀 Начать Mock Exam
+        ${t('mock_start')}
       </button>
     </div>`;
 }
@@ -2417,7 +2442,7 @@ function renderMockQuestion() {
         <div class="mock-timer-bar"><div class="mock-timer-fill" id="mock-timer-bar" style="width:100%"></div></div>
         <div style="font-size:13px;color:var(--muted)">Вопрос ${current+1} / ${total} · Отвечено: ${answers.filter(a=>a!==null).length}</div>
       </div>
-      <button class="btn btn-danger btn-sm" onclick="if(confirm('Завершить тест?'))submitMockExam()">✅ Сдать</button>
+      <button class="btn btn-danger btn-sm" onclick="if(confirm('Завершить тест?'))submitMockExam()">${t('btn_submit')}</button>
     </div>
 
     <div style="margin-bottom:16px">
@@ -2438,7 +2463,7 @@ function renderMockQuestion() {
       <button class="btn btn-ghost" ${current===0?'disabled':''} onclick="jumpMockQ(${current-1})">← Назад</button>
       ${current < total-1
         ? `<button class="btn btn-primary" onclick="jumpMockQ(${current+1})">Далее →</button>`
-        : `<button class="btn btn-success" onclick="submitMockExam()">✅ Завершить</button>`}
+        : `<button class="btn btn-success" onclick="submitMockExam()">${t('btn_finish')}</button>`}
     </div>`;
 
   updateMockTimer();
@@ -2471,7 +2496,7 @@ function submitMockExam() {
   const pct = Math.round(correct / questions.length * 100);
   const timeUsed = totalSecs - secsLeft;
   const mins = Math.floor(timeUsed / 60), secs = timeUsed % 60;
-  const grade = pct >= 80 ? '🏆 Отлично!' : pct >= 60 ? '✅ Хорошо' : pct >= 40 ? '📚 Нужно повторить' : '⚠️ Изучи теорию';
+  const grade = pct >= 80 ? t('result_grade_excellent') : pct >= 60 ? t('result_grade_good') : pct >= 40 ? t('result_grade_ok') : t('result_grade_bad');
   const xpGain = Math.max(10, Math.round(correct / questions.length * 60));
 
   // Save state
@@ -2485,7 +2510,7 @@ function submitMockExam() {
     const wasSkipped = answers[i] === null;
     return `<div style="background:var(--surface);border:1px solid ${isCorrect?'var(--accent3)':wasSkipped?'var(--border)':'var(--danger)'};border-radius:12px;padding:16px;margin-bottom:10px">
       <div style="font-size:12px;font-weight:700;color:${isCorrect?'var(--accent3)':wasSkipped?'var(--muted)':'var(--danger)'};margin-bottom:8px">
-        ${isCorrect?'✅ Правильно':wasSkipped?'⏭ Пропущен':'❌ Неверно'} · Вопрос ${i+1}
+        ${isCorrect?t('review_correct'):wasSkipped?t('review_skip'):t('review_wrong')} · Вопрос ${i+1}
       </div>
       <div style="font-size:14px;font-weight:600;margin-bottom:10px">${q.q}</div>
       ${q.opts.map((o,j) => `<div style="font-size:13px;padding:6px 10px;border-radius:8px;margin-bottom:4px;background:${j===q.ans?'rgba(16,185,129,.12)':j===answers[i]&&!isCorrect?'rgba(239,68,68,.12)':'var(--surface2)'};color:${j===q.ans?'var(--accent3)':j===answers[i]&&!isCorrect?'var(--danger)':'var(--muted)'}">
@@ -2518,13 +2543,13 @@ function submitMockExam() {
         </div>
         <div style="font-size:28px;color:var(--gold);font-weight:800;margin-bottom:20px">+${xpGain} XP ⚡</div>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-          <button class="btn btn-primary" onclick="showMockSetup()">🔄 Новый тест</button>
-          <button class="btn btn-ghost" onclick="showPage('subjects')">📚 К предметам</button>
+          <button class="btn btn-primary" onclick="showMockSetup()">${t('mock_retry')}</button>
+          <button class="btn btn-ghost" onclick="showPage('subjects')">${t('mock_back')}</button>
         </div>
       </div>
 
       <div>
-        <h3 style="font-family:var(--font-head);font-size:18px;font-weight:700;margin-bottom:16px">📋 Разбор ошибок</h3>
+        <h3 style="font-family:var(--font-head);font-size:18px;font-weight:700;margin-bottom:16px">${t('review_title')}</h3>
         ${reviewHtml}
       </div>
     </div>`;
